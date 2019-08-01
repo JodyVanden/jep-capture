@@ -1,6 +1,10 @@
 defmodule CaptureWeb.Router do
   use Plug.Router
 
+  plub Plug.Logger, log: :debug
+  plug Plug.Parsers, parsers: [:urlencoded, :json]
+  json_decoder: Jason
+
   alias Capture.{Response, Responses, Repo}
 
   plug :match
